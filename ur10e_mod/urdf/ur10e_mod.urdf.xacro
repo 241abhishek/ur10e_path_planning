@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="ur10e_mod">
+
+  <xacro:arg name="name" default="ur10e"/>
+  <xacro:arg name="prefix" default="ur10e_"/>
+  <xacro:arg name="joint_limits_parameters_file" default="$(find ur_description)/config/ur10e/joint_limits.yaml"/>
+  <xacro:arg name="kinematics_parameters_file" default="$(find ur_description)/config/ur10e/default_kinematics.yaml"/>
+  <xacro:arg name="physical_parameters_file" default="$(find ur_description)/config/ur10e/physical_parameters.yaml"/>
+  <xacro:arg name="visual_parameters_file" default="$(find ur_description)/config/ur10e/visual_parameters.yaml"/>
+
+  <!-- Declare properties -->
+  <xacro:property name="name" value="$(arg name)"/>
+  <xacro:property name="prefix" value="$(arg prefix)"/>
+  <xacro:property name="joint_limits_parameters_file" value="$(arg joint_limits_parameters_file)"/>
+  <xacro:property name="kinematics_parameters_file" value="$(arg kinematics_parameters_file)"/>
+  <xacro:property name="physical_parameters_file" value="$(arg physical_parameters_file)"/>
+  <xacro:property name="visual_parameters_file" value="$(arg visual_parameters_file)"/>
+
+  <!-- Add a prismatic lift joint and link -->
+  <link name="world"/>
+    
+  <link name="z_lift_link">
+    <visual>
+      <geometry>
+        <cylinder radius="0.1" length="0.05"/>
+      </geometry>
+      <origin xyz="0 0 0.025" rpy="0 0 0"/>
+    </visual>
+  </link>
+
+  <joint name="z_lift_joint" type="prismatic">
+    <parent link="world"/>
+    <child link="z_lift_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="0.0" upper="1.0" effort="100" velocity="0.2"/>
+  </joint>
+
+  <!-- Include base macro -->
+  <xacro:include filename="$(find ur_description)/urdf/ur_macro.xacro"/>
+  <xacro:ur_robot
+    name="${name}"
+    tf_prefix=""
+    parent="z_lift_link"
+    joint_limits_parameters_file="${joint_limits_parameters_file}"
+    kinematics_parameters_file="${kinematics_parameters_file}"
+    physical_parameters_file="${physical_parameters_file}"
+    visual_parameters_file="${visual_parameters_file}">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:ur_robot>
+</robot>

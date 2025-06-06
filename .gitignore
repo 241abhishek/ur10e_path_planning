@@ -1,0 +1,15 @@
+# ROS 2 workspace build artifacts
+/build/
+/install/
+/log/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# VSCode settings (optional)
+.vscode/
+
+# CMake cache and build files
+CMakeCache.txt
+CMakeFiles/

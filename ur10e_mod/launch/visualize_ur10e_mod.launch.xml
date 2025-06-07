@@ -3,7 +3,7 @@
 
   <!-- Process the xacro and publish robot state -->
   <node pkg="robot_state_publisher" exec="robot_state_publisher" output="screen">
-    <param name="robot_description" value="$(command '$(exec-in-pkg xacro xacro) $(find-pkg-share ur10e_mod)/urdf/ur10e_mod.urdf.xacro')" />
+    <param name="robot_description" value="$(command '$(exec-in-pkg xacro xacro) $(find-pkg-share ur10e_mod)/urdf/ur10e_mod_gz.urdf.xacro')" />
   </node>
 
   <node pkg="joint_state_publisher_gui" exec="joint_state_publisher_gui" output="screen"/>

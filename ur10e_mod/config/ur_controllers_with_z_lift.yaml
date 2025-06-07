@@ -49,6 +49,7 @@ joint_trajectory_controller:
     constraints:
       stopped_velocity_tolerance: 0.2
       goal_time: 0.0
+      z_lift_joint: { trajectory: 0.2, goal: 0.1 }
       shoulder_pan_joint: { trajectory: 0.2, goal: 0.1 }
       shoulder_lift_joint: { trajectory: 0.2, goal: 0.1 }
       elbow_joint: { trajectory: 0.2, goal: 0.1 }
@@ -79,6 +80,7 @@ scaled_joint_trajectory_controller:
     constraints:
       stopped_velocity_tolerance: 0.2
       goal_time: 0.0
+      z_lift_joint: { trajectory: 0.2, goal: 0.1 }
       shoulder_pan_joint: { trajectory: 0.2, goal: 0.1 }
       shoulder_lift_joint: { trajectory: 0.2, goal: 0.1 }
       elbow_joint: { trajectory: 0.2, goal: 0.1 }

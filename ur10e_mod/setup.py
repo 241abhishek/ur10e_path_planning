@@ -11,7 +11,7 @@ setup(
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
         ('share/' + package_name + '/launch',
-            ['launch/visualize_ur10e_mod.launch.xml', 'launch/ur10e_mod_sim_control.launch.py']),
+            ['launch/visualize_ur10e_mod.launch.xml', 'launch/ur10e_mod_sim_control.launch.py','launch/ur10e_mod_move_it.launch.py']),
         ('share/' + package_name + '/urdf',
             ['urdf/ur10e_mod.urdf.xacro', 'urdf/ur10e_mod_gz.urdf.xacro',
              'urdf/ur10e_mod_gz.ros2_control.xacro','urdf/ur10e_mod_joint_control.xacro']),

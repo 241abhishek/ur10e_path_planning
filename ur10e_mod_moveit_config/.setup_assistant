@@ -1,0 +1,25 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: ur10e_mod
+    relative_path: urdf/ur10e_mod_gz.urdf.xacro
+  srdf:
+    relative_path: config/ur10e_mod.srdf
+  package_settings:
+    author_name: Abhishek Sankar
+    author_email: 241abhishek@gmail.com
+    generated_timestamp: 1749313827
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity

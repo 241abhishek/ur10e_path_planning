@@ -39,6 +39,7 @@ def launch_setup(context, *args, **kwargs):
     # MoveIt Configuration
     moveit_config = (
         MoveItConfigsBuilder("ur10e_mod", package_name="ur10e_mod_moveit_config")
+        .joint_limits(file_path="config/joint_limits.yaml")
         .robot_description(file_path="config/ur10e_mod.urdf.xacro")
         .robot_description_semantic(file_path="config/ur10e_mod.srdf")
         .trajectory_execution(file_path="config/moveit_controllers.yaml")
@@ -112,6 +113,7 @@ def launch_setup(context, *args, **kwargs):
             moveit_config.robot_description_semantic,
             moveit_config.planning_pipelines,
             moveit_config.robot_description_kinematics,
+            moveit_config.joint_limits,
             {"use_sim_time": True},
         ],
         condition=IfCondition(launch_rviz),

@@ -5,9 +5,10 @@ from rclpy.action import ActionClient
 from sensor_msgs.msg import JointState
 from std_msgs.msg import Header
 from std_srvs.srv import Trigger
+from geometry_msgs.msg import Quaternion
 
 from moveit_msgs.srv import GetCartesianPath
-from moveit_msgs.msg import RobotState
+from moveit_msgs.msg import RobotState, Constraints, OrientationConstraint
 from moveit_msgs.action import ExecuteTrajectory
 
 from ur10e_mod_interfaces.srv import PlanCartesianPath
@@ -65,6 +66,19 @@ class CartesianPlanner(Node):
             path_request.waypoints = waypoints
         else:
             path_request.waypoints = request.waypoints
+
+        # add orientation constraints to keep the end effector perpendicular to the z-axis
+        orientation_constraint = OrientationConstraint()
+        orientation_constraint.header = Header(frame_id="world")
+        orientation_constraint.link_name = self.ee_link
+        orientation_constraint.orientation = Quaternion(w=0.707, x=-0.707, y=0.0, z=0.0)
+        orientation_constraint.weight = 1.0
+        orientation_constraint.absolute_x_axis_tolerance = 0.2
+        orientation_constraint.absolute_y_axis_tolerance = 0.2
+        orientation_constraint.absolute_z_axis_tolerance = 0.2
+        constraints = Constraints()
+        constraints.orientation_constraints.append(orientation_constraint)
+        path_request.path_constraints = constraints
 
         result = None
         result = await self.compute_path_client.call_async(path_request)

@@ -5,10 +5,10 @@
   <xacro:arg name="name" default="ur10e_mod"/>
   <xacro:arg name="tf_prefix" default=""/>
   <xacro:arg name="ur_type" default="ur10e"/>
-  <xacro:arg name="joint_limit_params" default="$(find ur_description)/config/$(arg ur_type)/joint_limits.yaml"/>
-  <xacro:arg name="kinematics_params" default="$(find ur_description)/config/$(arg ur_type)/default_kinematics.yaml"/>
-  <xacro:arg name="physical_params" default="$(find ur_description)/config/$(arg ur_type)/physical_parameters.yaml"/>
-  <xacro:arg name="visual_params" default="$(find ur_description)/config/$(arg ur_type)/visual_parameters.yaml"/>
+  <xacro:arg name="joint_limit_params" default="$(find ur10e_mod)/config/joint_limits.yaml"/>
+  <xacro:arg name="kinematics_params" default="$(find ur10e_mod)/config/default_kinematics.yaml"/>
+  <xacro:arg name="physical_params" default="$(find ur10e_mod)/config/physical_parameters.yaml"/>
+  <xacro:arg name="visual_params" default="$(find ur10e_mod)/config/visual_parameters.yaml"/>
   <xacro:arg name="safety_limits" default="false"/>
   <xacro:arg name="safety_pos_margin" default="0.15"/>
   <xacro:arg name="safety_k_position" default="20"/>
@@ -61,7 +61,7 @@
     <child link="z_lift_link"/>
     <origin xyz="0 0 0" rpy="0 0 0"/>
     <axis xyz="0 0 1"/>
-    <limit lower="0.0" upper="1.0" effort="1000" velocity="1.0"/>
+    <limit lower="0.0" upper="1.0" effort="10000" velocity="1.0"/>
   </joint>
 
   <!-- Arm -->

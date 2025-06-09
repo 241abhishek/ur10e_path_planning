@@ -10,6 +10,9 @@ from moveit_msgs.msg import RobotState
 
 from ur10e_mod_interfaces.srv import PlanCartesianPath
 
+import os
+from path_planning_demo.load_waypoints import load_waypoints_from_yaml
+
 class CartesianPlanner(Node):
     def __init__(self):
         super().__init__('cartesian_planner')
@@ -43,13 +46,20 @@ class CartesianPlanner(Node):
         path_request.group_name = self.group_name
         path_request.link_name = self.ee_link
         path_request.start_state = RobotState(joint_state=self.latest_joint_state)
-        path_request.waypoints = request.waypoints
         path_request.max_step = 0.01
         path_request.jump_threshold = 0.0 
         path_request.avoid_collisions = True
         path_request.max_velocity_scaling_factor = 0.1
         path_request.max_acceleration_scaling_factor = 0.1
         path_request.header = Header(frame_id="world")
+        if request.from_yaml:
+            self.get_logger().info("Loading waypoints from YAML file...")
+            base_dir = os.path.dirname(os.path.abspath(__file__))
+            yaml_file_path = os.path.join(base_dir, '..', 'config', 'waypoints.yaml')
+            waypoints = load_waypoints_from_yaml(yaml_file_path)
+            path_request.waypoints = waypoints
+        else:
+            path_request.waypoints = request.waypoints
 
         result = None
         result = await self.compute_path_client.call_async(path_request)

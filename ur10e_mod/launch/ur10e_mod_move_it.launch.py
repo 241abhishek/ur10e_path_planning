@@ -210,6 +210,11 @@ def launch_setup(context, *args, **kwargs):
         executable="cartesian_path_plan",
     )
 
+    ee_velocity_pub = Node(
+        package="path_planning_demo",
+        executable="ee_velocity",
+    )
+
     nodes_to_start = [
         robot_state_publisher_node,
         joint_state_broadcaster_spawner,
@@ -221,6 +226,7 @@ def launch_setup(context, *args, **kwargs):
         gz_launch_description,
         gz_sim_bridge,
         path_planning_demo,
+        ee_velocity_pub,
     ]
 
     return nodes_to_start

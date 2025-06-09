@@ -21,6 +21,7 @@ setup(
     entry_points={
         'console_scripts': [
             "cartesian_path_plan = path_planning_demo.cartesian_path_plan:main",
+            "ee_velocity = path_planning_demo.ee_velocity:main",
         ],
     },
 )

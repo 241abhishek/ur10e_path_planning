@@ -205,6 +205,11 @@ def launch_setup(context, *args, **kwargs):
         )
     )
 
+    path_planning_demo = Node(
+        package="path_planning_demo",
+        executable="cartesian_path_plan",
+    )
+
     nodes_to_start = [
         robot_state_publisher_node,
         joint_state_broadcaster_spawner,
@@ -215,6 +220,7 @@ def launch_setup(context, *args, **kwargs):
         gz_spawn_entity,
         gz_launch_description,
         gz_sim_bridge,
+        path_planning_demo,
     ]
 
     return nodes_to_start

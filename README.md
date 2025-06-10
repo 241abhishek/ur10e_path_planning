@@ -37,25 +37,43 @@ MoveIt configuration package tailored for the modified UR10e. Contains planning 
 
 ## Quickstart
 
-1. Launch the Full Simulation - Start all necessary nodes, robot state, visualization, and planning interfaces:
+1. Install all dependencies using the following command (replace ros-distro if required):
+
+```
+sudo apt install ros-jazzy-ros2-control ros-jazzy-ros2-controllers ros-jazzy-gz-ros2-control ros-jazzy-ur-controllers ros-jazzy-ur-description ros-jazzy-moveit
+```
+
+2. Build and source the workspace:
+
+```
+mkdir -p ros_ws/src
+cd ros_ws/src
+git clone git@github.com:241abhishek/ur10e_path_planning.git
+cd ..
+colcon build
+source install/setup.bash
+```
+
+3. Launch the Full Simulation - Start all necessary nodes, robot state, visualization, and planning interfaces:
 
 ```
 ros2 launch ur10e_mod ur10e_mod_move_it.launch.py
 ```
 
-2. Load Waypoints from YAML File - Waypoints are defined in a waypoints.yaml file inside the path_planning_demo/config directory. Load them into the planner:
+4. Load Waypoints from YAML File - Waypoints are defined in a waypoints.yaml file inside the path_planning_demo/config directory (by default). Set the "waypoints_file_path" param first and then load them into the planner. The snippet below assumes execution is carried out from the ROS workspace root:
 
 ```
+ros2 param set /cartesian_planner waypoints_file_path src/path_planning_demo/config/waypoints.yaml
 ros2 service call /plan_cartesian_path ur10e_mod_interfaces/srv/PlanCartesianPath "{from_yaml: true}"
 ```
 
-3. Specify Waypoints Manually - You can also specify waypoints inline via the service call:
+5. Specify Waypoints Manually - You can also specify waypoints inline via the service call:
 
 ```
-ros2 service call /plan_cartesian_path ur10e_mod_interfaces/srv/PlanCartesianPath "{waypoints: [{position: {x: 0.5, y: 0.7, z: 1.5}, orientation: {x: -0.707, y: 0.0, z: 0.0, w: 0.707}}]}"
+ros2 service call /plan_cartesian_path ur10e_mod_interfaces/srv/PlanCartesianPath "{waypoints: [{position: {x: 0.5, y: 0.75, z: 1.5}, orientation: {x: -0.707, y: 0.0, z: 0.0, w: 0.707}}]}"
 ```
 
-4. Execute Planned Trajectory - Once the trajectory is visualized and confirmed in Rviz, execute it in the Gazebo environment:
+6. Execute Planned Trajectory - Once the trajectory is visualized and confirmed in Rviz, execute it in the Gazebo environment:
 
 ```
 ros2 service call /execute_planned_trajectory std_srvs/srv/Trigger

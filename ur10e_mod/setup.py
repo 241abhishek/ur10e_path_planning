@@ -13,7 +13,7 @@ setup(
         ('share/' + package_name + '/launch',
             ['launch/visualize_ur10e_mod.launch.xml', 'launch/ur10e_mod_sim_control.launch.py','launch/ur10e_mod_move_it.launch.py']),
         ('share/' + package_name + '/urdf',
-            ['urdf/ur10e_mod.urdf.xacro', 'urdf/ur10e_mod_gz.urdf.xacro',
+            ['urdf/ur10e_mod_gz.urdf.xacro',
              'urdf/ur10e_mod_gz.ros2_control.xacro','urdf/ur10e_mod_joint_control.xacro']),
         ('share/' + package_name + '/config',
             ['config/view_robot.rviz', 'config/ur_controllers_with_z_lift.yaml', 'config/default_kinematics.yaml',

@@ -29,6 +29,9 @@ class CartesianPlanner(Node):
         self.latest_joint_state = None
         self.planned_trajectory = None
 
+        # Declare parameter
+        self.declare_parameter('waypoints_file_path', '')
+
         self.joint_sub = self.create_subscription(JointState, '/joint_states', self.joint_state_callback, 10)
 
         self.compute_path_client = self.create_client(GetCartesianPath, '/compute_cartesian_path')
@@ -70,9 +73,17 @@ class CartesianPlanner(Node):
         path_request.header = Header(frame_id="world")
         if request.from_yaml:
             self.get_logger().info("Loading waypoints from YAML file...")
-            base_dir = os.path.dirname(os.path.abspath(__file__))
-            yaml_file_path = os.path.join(base_dir, '..', 'config', 'waypoints.yaml')
-            waypoints = load_waypoints_from_yaml(yaml_file_path)
+            yaml_file_path = self.get_parameter('waypoints_file_path').get_parameter_value().string_value
+            # try to load waypoints from the specified YAML file
+            if not yaml_file_path:
+                self.get_logger().error("No waypoints file path provided.")
+                response.success = False
+                return response
+            if not os.path.exists(yaml_file_path):
+                self.get_logger().error(f"Waypoints file not found: {os.path.abspath(yaml_file_path)}")
+                response.success = False
+                return response
+            waypoints = load_waypoints_from_yaml(os.path.abspath(yaml_file_path))
             path_request.waypoints = waypoints
         else:
             path_request.waypoints = request.waypoints

@@ -5,6 +5,12 @@ from tf2_ros import Buffer, TransformListener
 import numpy as np
 
 class EEVelocityPublisher(Node):
+    """
+    A ROS 2 node that calculates and publishes the end-effector velocity
+    based on the transformation from the 'world' frame to the 'tool0' frame.
+    It computes the velocity as the change in position over time and publishes
+    it as a Float64 message on the '/ee_velocity' topic.
+    """
     def __init__(self):
         super().__init__('ee_velocity_publisher')
 
@@ -15,7 +21,7 @@ class EEVelocityPublisher(Node):
         self.prev_pos = None
 
         self.publisher = self.create_publisher(Float64, '/ee_velocity', 10)
-        self.timer = self.create_timer(0.01, self.timer_callback)
+        self.timer = self.create_timer(0.5, self.timer_callback)
 
     def timer_callback(self):
         try:

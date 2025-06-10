@@ -17,6 +17,9 @@ import os
 from path_planning_demo.load_waypoints import load_waypoints_from_yaml
 
 class CartesianPlanner(Node):
+    """
+    A ROS 2 node for planning and executing Cartesian paths for a UR10e robot.
+    """
     def __init__(self):
         super().__init__('cartesian_planner')
         
@@ -44,6 +47,13 @@ class CartesianPlanner(Node):
         self.latest_joint_state = msg
 
     async def plan_service_cb(self, request, response):
+        """
+        Callback for the PlanCartesianPath service.
+        This service computes a Cartesian path based on the provided waypoints or from a YAML file.
+        :param request: The service request containing waypoints or a flag to load from YAML.
+        :param response: The service response indicating success or failure.
+        :return: A response indicating whether the path was successfully planned.
+        """
         if self.latest_joint_state is None:
             self.get_logger().warn("No joint state received yet.")
             return response
@@ -95,6 +105,13 @@ class CartesianPlanner(Node):
         return response
 
     async def execute_cb(self, request, response):
+        """
+        Callback for the execute_planned_trajectory service.
+        This service executes the previously planned trajectory.
+        :param request: The service request (not used in this case).
+        :param response: The service response indicating success or failure.
+        :return: A response indicating whether the trajectory was successfully executed. 
+        """
         if self.planned_trajectory is None:
             self.get_logger().warn("No trajectory to execute.")
             response.success = False

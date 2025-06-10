@@ -3,9 +3,9 @@
 <package format="3">
   <name>path_planning_demo</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
-  <maintainer email="ubuntu@todo.todo">ubuntu</maintainer>
-  <license>TODO: License declaration</license>
+  <description>Cartesian path planning for a modified ur10e robotic arm</description>
+  <maintainer email="241abhishek@gmail.com">ubuntu</maintainer>
+  <license>Apache License 2.0</license>
 
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>

@@ -4,22 +4,22 @@ This repository demonstrates Cartesian path planning using trapezoidal velocity 
 
 ## Demo Videos
 
-1. Rviz Visualization
+1. Gazebo Simulation
 
 <div align="center">
-  <video src=https://private-user-images.githubusercontent.com/72541517/453325344-3647d4b9-4ab1-4772-b78f-2b29ff6c8d9a.mp4?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDk1MzkzNjMsIm5iZiI6MTc0OTUzOTA2MywicGF0aCI6Ii83MjU0MTUxNy80NTMzMjUzNDQtMzY0N2Q0YjktNGFiMS00NzcyLWI3OGYtMmIyOWZmNmM4ZDlhLm1wND9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA2MTAlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNjEwVDA3MDQyM1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTYyMmY3YjZiNTE0ODBjZWE0Yjk4MTEwZDNkMWM1ZmQ5NmJiNmJmZTNiZDQ1YzhmZmUzYmFhZDk4MWM4MDIyYTYmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.YvcRpUXpOQ4vGdrMQp-PnwmJnWnPT_k-Hgs-1kXEIpY />
+  <video src=https://private-user-images.githubusercontent.com/72541517/460334657-84af209e-4323-4c09-ae62-b99989d96e5b.mp4?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NTEyMjI0MTEsIm5iZiI6MTc1MTIyMjExMSwicGF0aCI6Ii83MjU0MTUxNy80NjAzMzQ2NTctODRhZjIwOWUtNDMyMy00YzA5LWFlNjItYjk5OTg5ZDk2ZTViLm1wND9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA2MjklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNjI5VDE4MzUxMVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTBmZDg5N2Q0ZWY0YmNkNTAyZDA4OWVmOWQwNWQyMWVhODZlZDM1Y2Y3NDU5Zjc3ZDNhYzY2YTk3YTFhYmJlOWYmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.cgltp9raDL212dK_UjKHj0qnNG-g1pLQaSnPOxPCGGk />
 </div>
 
-2. Gazebo Simulation
+2. Rviz Visualization
 
 <div align="center">
-  <video src=https://private-user-images.githubusercontent.com/72541517/453326416-47b58714-21fc-4b9b-a72f-f5c9f9eb04b5.mp4?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDk1Mzk1NTgsIm5iZiI6MTc0OTUzOTI1OCwicGF0aCI6Ii83MjU0MTUxNy80NTMzMjY0MTYtNDdiNTg3MTQtMjFmYy00YjliLWE3MmYtZjVjOWY5ZWIwNGI1Lm1wND9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA2MTAlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNjEwVDA3MDczOFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWFmZmMzMWUxNDcyMzE0MTI1Y2UzMThlNTAwNDNmMzJiNjBhZmUzZWVjMzljYWVjMzdjZTU2MTA4YmQxY2Y4MmImWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.2c4nQdXrH2i0UI4guRNroSp0iKjmHwv6If_Y9WE0Rdk />
+  <video src=https://private-user-images.githubusercontent.com/72541517/460335052-07d26dc3-926a-4606-a1c2-e402df3db998.mp4?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NTEyMjI0ODIsIm5iZiI6MTc1MTIyMjE4MiwicGF0aCI6Ii83MjU0MTUxNy80NjAzMzUwNTItMDdkMjZkYzMtOTI2YS00NjA2LWExYzItZTQwMmRmM2RiOTk4Lm1wND9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA2MjklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNjI5VDE4MzYyMlomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWU0Y2YyZTI2M2Y3NTY5ZjAxY2Y1NDhmNzg1ZGEwN2QyZDUxMjQ5YTI4NWZkYWYxMzY4YmU3MWJmMDdjNTM4ZmImWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0._AH1UMX6u1-N3I_zwWofNXJcjmnj8lR9xiGqC0AnATc />
 </div>
 
-3. Velocity Plots
+3. Velocity Plot (Constant Velocity Cartesian Motion for the End-Effector using Trapezoidal Velocity Profiles)
 
 <div align="center">
-  <video src=https://private-user-images.githubusercontent.com/72541517/453326762-db6f98d2-ba42-41f9-82c7-af98568faee6.mp4?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDk1Mzk2NDEsIm5iZiI6MTc0OTUzOTM0MSwicGF0aCI6Ii83MjU0MTUxNy80NTMzMjY3NjItZGI2Zjk4ZDItYmE0Mi00MWY5LTgyYzctYWY5ODU2OGZhZWU2Lm1wND9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA2MTAlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNjEwVDA3MDkwMVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWY0NGE3ZWE3OWU4Yzk5NjFmODFkMGEzMjVlMDEwY2E5NWFlOGI1ODg5ZWJmMTAzNzQ4ZGIyNmJjODU2NGIxODgmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.FOezw8yq8dS9PKzg3eunkOd6TH2FTaCQXXjLps1eEGE />
+  <video src=https://private-user-images.githubusercontent.com/72541517/460331169-406cc548-58f9-47d4-97dd-e7c230ebfdae.mp4?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NTEyMjA5NDksIm5iZiI6MTc1MTIyMDY0OSwicGF0aCI6Ii83MjU0MTUxNy80NjAzMzExNjktNDA2Y2M1NDgtNThmOS00N2Q0LTk3ZGQtZTdjMjMwZWJmZGFlLm1wND9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA2MjklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNjI5VDE4MTA0OVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTkwNTVlOWRmNWM3YjIzNzZkYmY0MWZmN2JkZTUwNWZiOWZmMTY3M2I3Y2U3MmRmNTFiNmMwYmJjZjRhZWMxYzEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.pxUCuBLfHLJJPmDwqBMiZD0EqOwkgI4j9e24AwjgdcU />
 </div>
 
 ## Packages Overview
@@ -64,16 +64,16 @@ ros2 launch ur10e_mod ur10e_mod_move_it.launch.py
 
 ```
 ros2 param set /cartesian_planner waypoints_file_path src/path_planning_demo/config/waypoints.yaml
-ros2 service call /plan_cartesian_path ur10e_mod_interfaces/srv/PlanCartesianPath "{from_yaml: true}"
+ros2 service call /plan_pilz_cartesian_path ur10e_mod_interfaces/srv/PlanCartesianPath "{from_yaml: true}"
 ```
 
 5. Specify Waypoints Manually - You can also specify waypoints inline via the service call:
 
 ```
-ros2 service call /plan_cartesian_path ur10e_mod_interfaces/srv/PlanCartesianPath "{waypoints: [{position: {x: 0.5, y: 0.75, z: 1.5}, orientation: {x: -0.707, y: 0.0, z: 0.0, w: 0.707}}]}"
+ros2 service call /plan_pilz_cartesian_path ur10e_mod_interfaces/srv/PlanCartesianPath "{waypoints: [{position: {x: 0.5, y: 0.75, z: 1.5}, orientation: {x: -0.707, y: 0.0, z: 0.0, w: 0.707}}]}"
 ```
 
-6. Execute Planned Trajectory - Once the trajectory is visualized and confirmed in Rviz, execute it in the Gazebo environment:
+6. Execute Planned Trajectory - Once the trajectory has been successfully planned, execute it in the Gazebo environment:
 
 ```
 ros2 service call /execute_planned_trajectory std_srvs/srv/Trigger
@@ -82,5 +82,6 @@ ros2 service call /execute_planned_trajectory std_srvs/srv/Trigger
 ## Features
 
 - Orientation constraint enforcement to maintain tool perpendicularity against a plane.
+- Constant velocity cartesian motion using trapezoidal velocity profiles.
 - Integrated planning support for both the arm and the base prismatic lift joint.
 - Support for both Rviz-based visualization and Gazebo physics simulation.

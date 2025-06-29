@@ -82,6 +82,6 @@ ros2 service call /execute_planned_trajectory std_srvs/srv/Trigger
 ## Features
 
 - Orientation constraint enforcement to maintain tool perpendicularity against a plane.
-- Constant velocity cartesian motion using trapezoidal velocity profiles.
+- Constant velocity cartesian motion for the end-effector using trapezoidal velocity profiles.
 - Integrated planning support for both the arm and the base prismatic lift joint.
 - Support for both Rviz-based visualization and Gazebo physics simulation.
